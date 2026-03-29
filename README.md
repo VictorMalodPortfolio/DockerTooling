@@ -13,6 +13,7 @@ Containerised CLI environment for interacting with Kubernetes clusters.
 | stern | Multi-pod log tailing | `stern` |
 | sops | Encrypted secrets management | `sops`, `sops exec-env` |
 | age | Encryption tool (used by sops) | `age` |
+| git-cliff | Changelog generator from conventional commits | `git-cliff` |
 
 ## Usage
 
@@ -34,6 +35,14 @@ docker compose build
 ```
 
 The current directory is mounted at `/home/tooling/workspace` inside the container.
+
+## Git hooks
+
+Conventional commits are enforced locally via a `commit-msg` hook available in `.githooks/`. Run this once after cloning:
+
+```bash
+git config core.hooksPath .githooks
+```
 
 ## Prerequisites
 

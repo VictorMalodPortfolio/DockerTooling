@@ -10,6 +10,7 @@ ENV K9S_VERSION=0.28.2
 ENV STERN_VERSION=1.26.0
 ENV SOPS_VERSION=3.8.1
 ENV AGE_VERSION=1.1.1
+ENV GITCLIFF_VERSION=2.4.0
 
 # Base dependencies — single layer to minimise image size
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -59,6 +60,11 @@ RUN curl -fsSL "https://github.com/getsops/sops/releases/download/v${SOPS_VERSIO
 RUN curl -fsSL "https://github.com/FiloSottile/age/releases/download/v${AGE_VERSION}/age-v${AGE_VERSION}-linux-amd64.tar.gz" \
         | tar -xz -C /usr/local/bin --strip-components=1 age/age age/age-keygen \
     && chmod 0755 /usr/local/bin/age /usr/local/bin/age-keygen
+
+# git-cliff
+RUN curl -fsSL "https://github.com/orhun/git-cliff/releases/download/v${GITCLIFF_VERSION}/git-cliff-${GITCLIFF_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
+        | tar -xz -C /usr/local/bin --strip-components=1 "git-cliff-${GITCLIFF_VERSION}-x86_64-unknown-linux-gnu/git-cliff" \
+    && chmod 0755 /usr/local/bin/git-cliff
 
 # Non-root user — avoids running as root inside the container
 RUN useradd -m -s /bin/bash tooling
