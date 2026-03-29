@@ -26,4 +26,5 @@
 - `fix` Set HELM_*_HOME env vars to /tmp in tooling scripts ([f7f3052](https://github.com/VictorMalodPortfolio/DockerTooling/commit/f7f30528de5f1f0dbc673e16ffd14768ceadbdc2))
 - `build` Switch CHANGELOG to flat chronological list, skip self-referential commits ([f32aa64](https://github.com/VictorMalodPortfolio/DockerTooling/commit/f32aa640cdf5fbe561a410d13e51f5624c5c5009))
 - `build` Add version headers to CHANGELOG template ([9b9c2a4](https://github.com/VictorMalodPortfolio/DockerTooling/commit/9b9c2a47f1208bb3bef8e0ccda6fdaf0cfc5d393))
+- `docs` Add badges and improve README description ([71919f8](https://github.com/VictorMalodPortfolio/DockerTooling/commit/71919f82529c9db5b968a7048b1e71953946702a))
 
