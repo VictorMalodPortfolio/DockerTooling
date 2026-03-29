@@ -1,4 +1,5 @@
 # Changelog
+## v1.0.0 — 2026-03-29
 - `docs` Add CHANGELOG and conventional commits hook ([3ec7a71](https://github.com/VictorMalodPortfolio/DockerTooling/commit/3ec7a71905a2bea02715edcd0ac8d6181f5cf46a))
 - `feat` Add GitHub Actions workflows and git-cliff ([e88b4a4](https://github.com/VictorMalodPortfolio/DockerTooling/commit/e88b4a41e0e38fc6335682afd763509da9a75abd))
 - `fix` Lowercase GHCR image tag and add changelog dependency on build ([0a4b3f3](https://github.com/VictorMalodPortfolio/DockerTooling/commit/0a4b3f36c5459093de271f37ae65723d506e2d46))
@@ -28,4 +29,5 @@
 - `build` Add version headers to CHANGELOG template ([9b9c2a4](https://github.com/VictorMalodPortfolio/DockerTooling/commit/9b9c2a47f1208bb3bef8e0ccda6fdaf0cfc5d393))
 - `docs` Add badges and improve README description ([71919f8](https://github.com/VictorMalodPortfolio/DockerTooling/commit/71919f82529c9db5b968a7048b1e71953946702a))
 - `chore` Disable dependencyDashboardApproval to auto-open Renovate PRs ([3ce5bd3](https://github.com/VictorMalodPortfolio/DockerTooling/commit/3ce5bd3b3b536ef593ae707c80dd21789564a734))
+- `docs` Add GHCR image badge ([e21f7f0](https://github.com/VictorMalodPortfolio/DockerTooling/commit/e21f7f00801441f1fa6619ecb545934304cba0f3))
 
