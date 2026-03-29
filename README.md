@@ -1,6 +1,7 @@
 # k8s-tooling
 
 [![CI](https://github.com/VictorMalodPortfolio/DockerTooling/actions/workflows/ci.yml/badge.svg)](https://github.com/VictorMalodPortfolio/DockerTooling/actions/workflows/ci.yml)
+[![GHCR](https://img.shields.io/badge/GHCR-k8s--tooling-blue?logo=docker)](https://github.com/VictorMalodPortfolio/DockerTooling/pkgs/container/k8s-tooling)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A portable tooling container for interacting with the homelab from anywhere — just Docker and a few secrets. No local installs required.
