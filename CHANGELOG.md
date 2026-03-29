@@ -27,4 +27,5 @@
 - `build` Switch CHANGELOG to flat chronological list, skip self-referential commits ([f32aa64](https://github.com/VictorMalodPortfolio/DockerTooling/commit/f32aa640cdf5fbe561a410d13e51f5624c5c5009))
 - `build` Add version headers to CHANGELOG template ([9b9c2a4](https://github.com/VictorMalodPortfolio/DockerTooling/commit/9b9c2a47f1208bb3bef8e0ccda6fdaf0cfc5d393))
 - `docs` Add badges and improve README description ([71919f8](https://github.com/VictorMalodPortfolio/DockerTooling/commit/71919f82529c9db5b968a7048b1e71953946702a))
+- `chore` Disable dependencyDashboardApproval to auto-open Renovate PRs ([3ce5bd3](https://github.com/VictorMalodPortfolio/DockerTooling/commit/3ce5bd3b3b536ef593ae707c80dd21789564a734))
 
