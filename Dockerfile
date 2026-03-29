@@ -12,7 +12,7 @@ ENV OPENTOFU_VERSION=1.7.3
 # renovate: datasource=github-releases depName=derailed/k9s extractVersion=^v(?<version>.+)$
 ENV K9S_VERSION=0.28.2
 # renovate: datasource=github-releases depName=stern/stern extractVersion=^v(?<version>.+)$
-ENV STERN_VERSION=1.26.0
+ENV STERN_VERSION=1.33.1
 # renovate: datasource=github-releases depName=getsops/sops extractVersion=^v(?<version>.+)$
 ENV SOPS_VERSION=3.8.1
 # renovate: datasource=github-releases depName=FiloSottile/age extractVersion=^v(?<version>.+)$
