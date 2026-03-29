@@ -10,7 +10,7 @@ ENV HELM_VERSION=3.13.1
 # renovate: datasource=github-releases depName=opentofu/opentofu extractVersion=^v(?<version>.+)$
 ENV OPENTOFU_VERSION=1.7.3
 # renovate: datasource=github-releases depName=derailed/k9s extractVersion=^v(?<version>.+)$
-ENV K9S_VERSION=0.28.2
+ENV K9S_VERSION=0.50.18
 # renovate: datasource=github-releases depName=stern/stern extractVersion=^v(?<version>.+)$
 ENV STERN_VERSION=1.26.0
 # renovate: datasource=github-releases depName=getsops/sops extractVersion=^v(?<version>.+)$
