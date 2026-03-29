@@ -1,4 +1,5 @@
 # Changelog
+- `feat` Cd into ~/workspace and mark it as git safe directory ([b9c8a11](https://github.com/VictorMalodPortfolio/DockerTooling/commit/b9c8a116897842b50cf8c17a7597e2a50c72f55c))
 ## v1.0.0 — 2026-03-29
 - `docs` Add CHANGELOG and conventional commits hook ([3ec7a71](https://github.com/VictorMalodPortfolio/DockerTooling/commit/3ec7a71905a2bea02715edcd0ac8d6181f5cf46a))
 - `feat` Add GitHub Actions workflows and git-cliff ([e88b4a4](https://github.com/VictorMalodPortfolio/DockerTooling/commit/e88b4a41e0e38fc6335682afd763509da9a75abd))
