@@ -1,6 +1,9 @@
 # k8s-tooling
 
-Containerised CLI environment for interacting with Kubernetes clusters.
+[![CI](https://github.com/VictorMalodPortfolio/DockerTooling/actions/workflows/ci.yml/badge.svg)](https://github.com/VictorMalodPortfolio/DockerTooling/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+A portable tooling container for interacting with the homelab from anywhere — just Docker and a few secrets. No local installs required.
 
 ## Included tools
 
