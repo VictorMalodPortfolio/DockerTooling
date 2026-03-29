@@ -12,11 +12,16 @@
 - Bump actions/checkout to v4.2.2 for Node.js 24 support ([3c9fe19](https://github.com/VictorMalodPortfolio/DockerTooling/commit/3c9fe19463b0e455b16684303175f988f93520cd))
 - Bump actions/checkout to v6.0.2 for Node.js 24 ([7a983dc](https://github.com/VictorMalodPortfolio/DockerTooling/commit/7a983dc2017acab4efe42c3c5d4f5bbf935c6565))
 
+## Build
+
+- Add renovate.json and pin version comments in Dockerfile ([db96943](https://github.com/VictorMalodPortfolio/DockerTooling/commit/db96943bca769c9f87f988786b0d3e9d949fccaf))
+
 ## Documentation
 
 - Add CHANGELOG and conventional commits hook ([3ec7a71](https://github.com/VictorMalodPortfolio/DockerTooling/commit/3ec7a71905a2bea02715edcd0ac8d6181f5cf46a))
 - Update CHANGELOG ([f1a6488](https://github.com/VictorMalodPortfolio/DockerTooling/commit/f1a6488c77fa6cb2041a199ca9635abaabc8e696))
 - Update CHANGELOG ([ab5f8f7](https://github.com/VictorMalodPortfolio/DockerTooling/commit/ab5f8f7b922af3e9edee90e667c21bd57279c41a))
+- Update CHANGELOG ([43424f3](https://github.com/VictorMalodPortfolio/DockerTooling/commit/43424f39a95ee753a549aa05335b98a9edc97f1b))
 
 ## Features
 
