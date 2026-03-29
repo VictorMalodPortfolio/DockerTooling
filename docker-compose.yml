@@ -1,0 +1,15 @@
+services:
+  tooling:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: k8s-tooling:latest
+    container_name: k8s-tooling
+    stdin_open: true
+    tty: true
+
+    environment:
+      # Container-side paths for Helm
+      - HELM_CACHE_HOME=/home/tooling/.cache/helm
+      - HELM_CONFIG_HOME=/home/tooling/.config/helm
+      - HELM_DATA_HOME=/home/tooling/.local/share/helm
