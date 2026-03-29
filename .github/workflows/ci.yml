@@ -6,6 +6,9 @@ on:
   push:
     branches: [main]
 
+env:
+  IMAGE: ghcr.io/victormalodportfolio/k8s-tooling:latest
+
 jobs:
   conventional-commits:
     name: Validate commit messages
@@ -49,11 +52,12 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/k8s-tooling:latest
+          tags: ${{ env.IMAGE }}
 
   changelog:
     name: Update CHANGELOG
     runs-on: ubuntu-latest
+    needs: build-and-push
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     permissions:
       contents: write
