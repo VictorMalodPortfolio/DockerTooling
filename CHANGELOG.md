@@ -12,6 +12,7 @@
 - Bump actions/checkout to v4.2.2 for Node.js 24 support ([3c9fe19](https://github.com/VictorMalodPortfolio/DockerTooling/commit/3c9fe19463b0e455b16684303175f988f93520cd))
 - Bump actions/checkout to v6.0.2 for Node.js 24 ([7a983dc](https://github.com/VictorMalodPortfolio/DockerTooling/commit/7a983dc2017acab4efe42c3c5d4f5bbf935c6565))
 - Exclude merge commits from conventional commit validation ([5c6a0b9](https://github.com/VictorMalodPortfolio/DockerTooling/commit/5c6a0b9f7cd39ce4e3e56100ed2b13860f2e4340))
+- Set HELM_*_HOME env vars to /tmp in tooling scripts ([f7f3052](https://github.com/VictorMalodPortfolio/DockerTooling/commit/f7f30528de5f1f0dbc673e16ffd14768ceadbdc2))
 
 ## Build
 
@@ -41,6 +42,7 @@
 - Update CHANGELOG ([9bf1914](https://github.com/VictorMalodPortfolio/DockerTooling/commit/9bf19141410fa72333617bc865651203fc062ac0))
 - Update CHANGELOG ([38e62da](https://github.com/VictorMalodPortfolio/DockerTooling/commit/38e62dafd9f396e00537ebd581881e305e50a35b))
 - Update CHANGELOG ([1b50103](https://github.com/VictorMalodPortfolio/DockerTooling/commit/1b50103299ece8a46db2948f661a72fca3e78bb6))
+- Update CHANGELOG ([9b39517](https://github.com/VictorMalodPortfolio/DockerTooling/commit/9b39517597e9790e2f8bb5c7fae5ddbcd8a3abdb))
 
 ## Features
 
