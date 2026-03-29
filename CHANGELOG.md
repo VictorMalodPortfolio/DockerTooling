@@ -27,6 +27,9 @@
 - Update dependency orhun/git-cliff to v2.12.0 ([029147d](https://github.com/VictorMalodPortfolio/DockerTooling/commit/029147d9ec3caf0417ec1208874b3013c6db116a))
 - Update dependency stern/stern to v1.33.1 ([a1a2723](https://github.com/VictorMalodPortfolio/DockerTooling/commit/a1a2723673a158d029b8108a85850173657bfee8))
 - Update dependency opentofu/opentofu to v1.11.5 ([970f6e5](https://github.com/VictorMalodPortfolio/DockerTooling/commit/970f6e5ceebf33fb49b07f82618d731e80f729a2))
+- Update dependency derailed/k9s to v0.50.18 ([24b55a2](https://github.com/VictorMalodPortfolio/DockerTooling/commit/24b55a246d549a5b9fdabd8628fadb7a2b446502))
+- Update dependency helm/helm to v3.20.1 ([6c6df6e](https://github.com/VictorMalodPortfolio/DockerTooling/commit/6c6df6e465f5a0be283389d40486d4846f2735d9))
+- Update dependency kubernetes/kubernetes to v1.35.3 ([d2f013f](https://github.com/VictorMalodPortfolio/DockerTooling/commit/d2f013f75b9a97d64a5f3d152f8536728434c334))
 
 ## Documentation
 
@@ -37,6 +40,7 @@
 - Update CHANGELOG ([29e17ae](https://github.com/VictorMalodPortfolio/DockerTooling/commit/29e17aec54946a63cc21754a2ab9779cdb603a5c))
 - Update CHANGELOG ([9bf1914](https://github.com/VictorMalodPortfolio/DockerTooling/commit/9bf19141410fa72333617bc865651203fc062ac0))
 - Update CHANGELOG ([38e62da](https://github.com/VictorMalodPortfolio/DockerTooling/commit/38e62dafd9f396e00537ebd581881e305e50a35b))
+- Update CHANGELOG ([1b50103](https://github.com/VictorMalodPortfolio/DockerTooling/commit/1b50103299ece8a46db2948f661a72fca3e78bb6))
 
 ## Features
 
