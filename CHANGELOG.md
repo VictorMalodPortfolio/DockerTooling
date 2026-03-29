@@ -25,4 +25,5 @@
 - `chore` Update dependency kubernetes/kubernetes to v1.35.3 ([d2f013f](https://github.com/VictorMalodPortfolio/DockerTooling/commit/d2f013f75b9a97d64a5f3d152f8536728434c334))
 - `fix` Set HELM_*_HOME env vars to /tmp in tooling scripts ([f7f3052](https://github.com/VictorMalodPortfolio/DockerTooling/commit/f7f30528de5f1f0dbc673e16ffd14768ceadbdc2))
 - `build` Switch CHANGELOG to flat chronological list, skip self-referential commits ([f32aa64](https://github.com/VictorMalodPortfolio/DockerTooling/commit/f32aa640cdf5fbe561a410d13e51f5624c5c5009))
+- `build` Add version headers to CHANGELOG template ([9b9c2a4](https://github.com/VictorMalodPortfolio/DockerTooling/commit/9b9c2a47f1208bb3bef8e0ccda6fdaf0cfc5d393))
 
