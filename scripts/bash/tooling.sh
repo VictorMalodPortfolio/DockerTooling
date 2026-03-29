@@ -8,6 +8,9 @@ docker compose -f "$COMPOSE_FILE" run --rm \
   -v "$KUBECONFIG:/home/tooling/.kube/config:ro" \
   -v "$SOPS_AGE_KEY_FILE:/home/tooling/.config/sops/age/key.txt:ro" \
   -e SOPS_AGE_KEY_FILE=/home/tooling/.config/sops/age/key.txt \
+  -e HELM_CONFIG_HOME=/tmp/helm-config \
+  -e HELM_CACHE_HOME=/tmp/helm-cache \
+  -e HELM_DATA_HOME=/tmp/helm-data \
   -v ~/.ssh:/home/tooling/.ssh:ro \
   -v "$(pwd):/home/tooling/workspace" \
   tooling
