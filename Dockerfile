@@ -14,7 +14,7 @@ ENV K9S_VERSION=0.28.2
 # renovate: datasource=github-releases depName=stern/stern extractVersion=^v(?<version>.+)$
 ENV STERN_VERSION=1.26.0
 # renovate: datasource=github-releases depName=getsops/sops extractVersion=^v(?<version>.+)$
-ENV SOPS_VERSION=3.8.1
+ENV SOPS_VERSION=3.12.2
 # renovate: datasource=github-releases depName=FiloSottile/age extractVersion=^v(?<version>.+)$
 ENV AGE_VERSION=1.1.1
 # renovate: datasource=github-releases depName=orhun/git-cliff extractVersion=^v(?<version>.+)$
