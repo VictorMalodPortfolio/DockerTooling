@@ -78,8 +78,11 @@ RUN curl -fsSL "https://github.com/orhun/git-cliff/releases/download/v${GITCLIFF
 # Non-root user — avoids running as root inside the container
 RUN useradd -m -s /bin/bash tooling
 
+# Mark ~/workspace as a safe git directory so git doesn't refuse to run there
+RUN git config --system safe.directory /home/tooling/workspace
+
 USER tooling
-WORKDIR /home/tooling
+WORKDIR /home/tooling/workspace
 
 # Shell quality-of-life: completions + aliases
 COPY --chown=tooling:tooling .bashrc /home/tooling/.bashrc
