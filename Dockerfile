@@ -3,13 +3,21 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Pinned versions for reproducibility
+# renovate: datasource=github-releases depName=kubernetes/kubernetes extractVersion=^v(?<version>.+)$
 ENV KUBECTL_VERSION=1.28.3
+# renovate: datasource=github-releases depName=helm/helm extractVersion=^v(?<version>.+)$
 ENV HELM_VERSION=3.13.1
+# renovate: datasource=github-releases depName=opentofu/opentofu extractVersion=^v(?<version>.+)$
 ENV OPENTOFU_VERSION=1.7.3
+# renovate: datasource=github-releases depName=derailed/k9s extractVersion=^v(?<version>.+)$
 ENV K9S_VERSION=0.28.2
+# renovate: datasource=github-releases depName=stern/stern extractVersion=^v(?<version>.+)$
 ENV STERN_VERSION=1.26.0
+# renovate: datasource=github-releases depName=getsops/sops extractVersion=^v(?<version>.+)$
 ENV SOPS_VERSION=3.8.1
+# renovate: datasource=github-releases depName=FiloSottile/age extractVersion=^v(?<version>.+)$
 ENV AGE_VERSION=1.1.1
+# renovate: datasource=github-releases depName=orhun/git-cliff extractVersion=^v(?<version>.+)$
 ENV GITCLIFF_VERSION=2.4.0
 
 # Base dependencies — single layer to minimise image size
