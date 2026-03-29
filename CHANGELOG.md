@@ -24,6 +24,9 @@
 - Update ubuntu docker tag to v24 ([d438446](https://github.com/VictorMalodPortfolio/DockerTooling/commit/d4384465aa1de01b2b4c5156ba0c3e06f1309e5c))
 - Update dependency filosottile/age to v1.3.1 ([94fb058](https://github.com/VictorMalodPortfolio/DockerTooling/commit/94fb05844263ddf186aaa7611e5fcccd2fb140b3))
 - Update dependency getsops/sops to v3.12.2 ([86d1ec9](https://github.com/VictorMalodPortfolio/DockerTooling/commit/86d1ec94fb9b1385ef3676bba557f144788a2850))
+- Update dependency orhun/git-cliff to v2.12.0 ([029147d](https://github.com/VictorMalodPortfolio/DockerTooling/commit/029147d9ec3caf0417ec1208874b3013c6db116a))
+- Update dependency stern/stern to v1.33.1 ([a1a2723](https://github.com/VictorMalodPortfolio/DockerTooling/commit/a1a2723673a158d029b8108a85850173657bfee8))
+- Update dependency opentofu/opentofu to v1.11.5 ([970f6e5](https://github.com/VictorMalodPortfolio/DockerTooling/commit/970f6e5ceebf33fb49b07f82618d731e80f729a2))
 
 ## Documentation
 
@@ -33,6 +36,7 @@
 - Update CHANGELOG ([43424f3](https://github.com/VictorMalodPortfolio/DockerTooling/commit/43424f39a95ee753a549aa05335b98a9edc97f1b))
 - Update CHANGELOG ([29e17ae](https://github.com/VictorMalodPortfolio/DockerTooling/commit/29e17aec54946a63cc21754a2ab9779cdb603a5c))
 - Update CHANGELOG ([9bf1914](https://github.com/VictorMalodPortfolio/DockerTooling/commit/9bf19141410fa72333617bc865651203fc062ac0))
+- Update CHANGELOG ([38e62da](https://github.com/VictorMalodPortfolio/DockerTooling/commit/38e62dafd9f396e00537ebd581881e305e50a35b))
 
 ## Features
 
