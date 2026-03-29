@@ -63,7 +63,8 @@ RUN curl -fsSL "https://github.com/FiloSottile/age/releases/download/v${AGE_VERS
 
 # git-cliff
 RUN curl -fsSL "https://github.com/orhun/git-cliff/releases/download/v${GITCLIFF_VERSION}/git-cliff-${GITCLIFF_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
-        | tar -xz -C /usr/local/bin --strip-components=1 "git-cliff-${GITCLIFF_VERSION}-x86_64-unknown-linux-gnu/git-cliff" \
+        | tar -xz --strip-components=1 -C /usr/local/bin \
+            "git-cliff-${GITCLIFF_VERSION}-x86_64-unknown-linux-gnu/git-cliff" \
     && chmod 0755 /usr/local/bin/git-cliff
 
 # Non-root user — avoids running as root inside the container
