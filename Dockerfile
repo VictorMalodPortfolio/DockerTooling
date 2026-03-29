@@ -18,7 +18,7 @@ ENV SOPS_VERSION=3.8.1
 # renovate: datasource=github-releases depName=FiloSottile/age extractVersion=^v(?<version>.+)$
 ENV AGE_VERSION=1.1.1
 # renovate: datasource=github-releases depName=orhun/git-cliff extractVersion=^v(?<version>.+)$
-ENV GITCLIFF_VERSION=2.4.0
+ENV GITCLIFF_VERSION=2.12.0
 
 # Base dependencies — single layer to minimise image size
 RUN apt-get update && apt-get install -y --no-install-recommends \
