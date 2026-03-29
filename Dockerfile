@@ -63,9 +63,11 @@ RUN curl -fsSL "https://github.com/FiloSottile/age/releases/download/v${AGE_VERS
 
 # git-cliff
 RUN curl -fsSL "https://github.com/orhun/git-cliff/releases/download/v${GITCLIFF_VERSION}/git-cliff-${GITCLIFF_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
-        | tar -xz --strip-components=1 -C /usr/local/bin \
-            "git-cliff-${GITCLIFF_VERSION}-x86_64-unknown-linux-gnu/git-cliff" \
-    && chmod 0755 /usr/local/bin/git-cliff
+        -o /tmp/git-cliff.tar.gz \
+    && tar -xz -f /tmp/git-cliff.tar.gz -C /tmp \
+    && mv /tmp/git-cliff-${GITCLIFF_VERSION}-x86_64-unknown-linux-gnu/git-cliff /usr/local/bin/git-cliff \
+    && chmod 0755 /usr/local/bin/git-cliff \
+    && rm -rf /tmp/git-cliff.tar.gz /tmp/git-cliff-${GITCLIFF_VERSION}-x86_64-unknown-linux-gnu
 
 # Non-root user — avoids running as root inside the container
 RUN useradd -m -s /bin/bash tooling
