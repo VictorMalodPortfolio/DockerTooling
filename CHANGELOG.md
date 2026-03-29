@@ -11,6 +11,7 @@
 - Add cliff.toml and fix git safe directory ([f895c1b](https://github.com/VictorMalodPortfolio/DockerTooling/commit/f895c1b6089fa6b3511e87069b90a56c9b42ca30))
 - Bump actions/checkout to v4.2.2 for Node.js 24 support ([3c9fe19](https://github.com/VictorMalodPortfolio/DockerTooling/commit/3c9fe19463b0e455b16684303175f988f93520cd))
 - Bump actions/checkout to v6.0.2 for Node.js 24 ([7a983dc](https://github.com/VictorMalodPortfolio/DockerTooling/commit/7a983dc2017acab4efe42c3c5d4f5bbf935c6565))
+- Exclude merge commits from conventional commit validation ([5c6a0b9](https://github.com/VictorMalodPortfolio/DockerTooling/commit/5c6a0b9f7cd39ce4e3e56100ed2b13860f2e4340))
 
 ## Build
 
@@ -22,6 +23,7 @@
 - Update CHANGELOG ([f1a6488](https://github.com/VictorMalodPortfolio/DockerTooling/commit/f1a6488c77fa6cb2041a199ca9635abaabc8e696))
 - Update CHANGELOG ([ab5f8f7](https://github.com/VictorMalodPortfolio/DockerTooling/commit/ab5f8f7b922af3e9edee90e667c21bd57279c41a))
 - Update CHANGELOG ([43424f3](https://github.com/VictorMalodPortfolio/DockerTooling/commit/43424f39a95ee753a549aa05335b98a9edc97f1b))
+- Update CHANGELOG ([29e17ae](https://github.com/VictorMalodPortfolio/DockerTooling/commit/29e17aec54946a63cc21754a2ab9779cdb603a5c))
 
 ## Features
 
