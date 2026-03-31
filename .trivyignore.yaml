@@ -1,0 +1,65 @@
+vulnerabilities:
+  # stern v1.33.1 and tofu v1.11.5 are both at their latest releases.
+  # All CVEs below are in compiled-in Go dependencies (stdlib, grpc, otel).
+  # No upstream fix is available via a newer release of these tools.
+  # Risk is limited: these binaries are CLI clients, not network servers,
+  # so server-side vulnerabilities (auth bypass, session resumption) are
+  # not exploitable in this context.
+
+  # gRPC-Go: Authorization bypass due to improper HTTP/2 path validation
+  # Affects server-side gRPC authorization middleware — not applicable to CLI clients.
+  # Found in: stern v1.33.1, tofu v1.11.5
+  - id: CVE-2026-33186
+    statement: Not exploitable — stern and tofu use gRPC as clients, not servers.
+
+  # crypto/tls: Unexpected session resumption
+  # Affects TLS servers accepting resumed sessions — not applicable to CLI clients.
+  # Found in: stern v1.33.1 (stdlib v1.25.0), tofu v1.11.5 (stdlib v1.25.6)
+  - id: CVE-2025-68121
+    statement: Not exploitable — stern and tofu are TLS clients, not servers.
+
+  # OpenTelemetry Go SDK: Arbitrary code execution via PATH hijacking
+  # Requires local attacker to manipulate PATH before process execution.
+  # Risk is negligible in a container with a fixed, trusted PATH.
+  # Found in: tofu v1.11.5
+  - id: CVE-2026-24051
+    statement: Not exploitable — container PATH is fixed and not user-controlled at runtime.
+
+  # golang stdlib: Unbounded allocation when parsing GNU sparse tar maps
+  # Requires processing a maliciously crafted tar archive.
+  # Found in: stern v1.33.1
+  - id: CVE-2025-58183
+    statement: Accepted risk — stern does not process untrusted tar archives.
+
+  # golang stdlib: Memory exhaustion in net/url query parameter parsing
+  # Requires parsing an attacker-controlled URL with an excessively large query string.
+  # Found in: stern v1.33.1
+  - id: CVE-2025-61726
+    statement: Accepted risk — URLs parsed by stern come from kubeconfig/cluster, not untrusted input.
+
+  # golang stdlib: Excessive CPU consumption in archive/zip index building
+  # Requires processing a maliciously crafted zip archive.
+  # Found in: stern v1.33.1
+  - id: CVE-2025-61728
+    statement: Accepted risk — stern does not process untrusted zip archives.
+
+  # golang stdlib: DoS via crafted certificate chain in crypto/x509
+  # Requires processing a maliciously crafted TLS certificate.
+  # Found in: stern v1.33.1
+  - id: CVE-2025-61729
+    statement: Accepted risk — stern connects to trusted Kubernetes API servers only.
+
+  # net/url: Incorrect parsing of IPv6 host literals
+  # Found in: stern v1.33.1, tofu v1.11.5
+  - id: CVE-2026-25679
+    statement: Accepted risk — both tools connect to known, trusted endpoints.
+
+  # Docker CLI for Windows: Privilege escalation via symlink
+  # Windows-only vulnerability — not applicable in a Linux container.
+  - id: CVE-2025-15558
+    statement: Not applicable — Linux container, Windows-only attack vector.
+
+  # Moby: AuthZ plugin bypass when provided oversized request
+  # Requires a Docker AuthZ plugin to be configured — not the case here.
+  - id: CVE-2026-34040
+    statement: Not applicable — no AuthZ plugin is configured in this tooling container.
