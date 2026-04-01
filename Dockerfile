@@ -19,6 +19,8 @@ ENV SOPS_VERSION=3.12.2
 ENV AGE_VERSION=1.3.1
 # renovate: datasource=github-releases depName=orhun/git-cliff extractVersion=^v(?<version>.+)$
 ENV GITCLIFF_VERSION=2.12.0
+# renovate: datasource=github-releases depName=sigstore/cosign extractVersion=^v(?<version>.+)$
+ENV COSIGN_VERSION=3.0.5
 
 # Base dependencies — single layer to minimise image size
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -35,45 +37,79 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # kubectl
-RUN curl -fsSL "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl \
-    && chmod 0755 /usr/local/bin/kubectl
+RUN curl -fsSL "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl" -o /tmp/kubectl \
+    && CHECKSUM=$(curl -fsSL "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl.sha256") \
+    && echo "${CHECKSUM}  /tmp/kubectl" | sha256sum -c \
+    && install -m 0755 /tmp/kubectl /usr/local/bin/kubectl \
+    && rm /tmp/kubectl
 
 # Helm
-RUN curl -fsSL "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" \
-        | tar -xz -C /usr/local/bin --strip-components=1 linux-amd64/helm \
-    && chmod 0755 /usr/local/bin/helm
+RUN curl -fsSL "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" -o /tmp/helm.tar.gz \
+    && CHECKSUM=$(curl -fsSL "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" | awk '{print $1}') \
+    && echo "${CHECKSUM}  /tmp/helm.tar.gz" | sha256sum -c \
+    && tar -xz -C /usr/local/bin --strip-components=1 linux-amd64/helm -f /tmp/helm.tar.gz \
+    && chmod 0755 /usr/local/bin/helm \
+    && rm /tmp/helm.tar.gz
 
 # OpenTofu
 RUN curl -fsSL "https://github.com/opentofu/opentofu/releases/download/v${OPENTOFU_VERSION}/tofu_${OPENTOFU_VERSION}_linux_amd64.zip" -o /tmp/tofu.zip \
+    && CHECKSUM=$(curl -fsSL "https://github.com/opentofu/opentofu/releases/download/v${OPENTOFU_VERSION}/tofu_${OPENTOFU_VERSION}_SHA256SUMS" \
+        | grep "tofu_${OPENTOFU_VERSION}_linux_amd64.zip" | awk '{print $1}') \
+    && echo "${CHECKSUM}  /tmp/tofu.zip" | sha256sum -c \
     && unzip -q /tmp/tofu.zip -d /usr/local/bin tofu \
     && chmod 0755 /usr/local/bin/tofu \
     && rm /tmp/tofu.zip
 
 # k9s
-RUN curl -fsSL "https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/k9s_Linux_amd64.tar.gz" \
-        | tar -xz -C /usr/local/bin k9s \
-    && chmod 0755 /usr/local/bin/k9s
+RUN curl -fsSL "https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/k9s_Linux_amd64.tar.gz" -o /tmp/k9s.tar.gz \
+    && CHECKSUM=$(curl -fsSL "https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/checksums.sha256" \
+        | grep "k9s_Linux_amd64.tar.gz$" | awk '{print $1}') \
+    && echo "${CHECKSUM}  /tmp/k9s.tar.gz" | sha256sum -c \
+    && tar -xz -C /usr/local/bin k9s -f /tmp/k9s.tar.gz \
+    && chmod 0755 /usr/local/bin/k9s \
+    && rm /tmp/k9s.tar.gz
 
 # stern
-RUN curl -fsSL "https://github.com/stern/stern/releases/download/v${STERN_VERSION}/stern_${STERN_VERSION}_linux_amd64.tar.gz" \
-        | tar -xz -C /usr/local/bin stern \
-    && chmod 0755 /usr/local/bin/stern
+RUN curl -fsSL "https://github.com/stern/stern/releases/download/v${STERN_VERSION}/stern_${STERN_VERSION}_linux_amd64.tar.gz" -o /tmp/stern.tar.gz \
+    && CHECKSUM=$(curl -fsSL "https://github.com/stern/stern/releases/download/v${STERN_VERSION}/checksums.txt" \
+        | grep "stern_${STERN_VERSION}_linux_amd64.tar.gz" | awk '{print $1}') \
+    && echo "${CHECKSUM}  /tmp/stern.tar.gz" | sha256sum -c \
+    && tar -xz -C /usr/local/bin stern -f /tmp/stern.tar.gz \
+    && chmod 0755 /usr/local/bin/stern \
+    && rm /tmp/stern.tar.gz
 
 # sops
-RUN curl -fsSL "https://github.com/getsops/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux.amd64" \
-        -o /usr/local/bin/sops \
-    && chmod 0755 /usr/local/bin/sops
+RUN curl -fsSL "https://github.com/getsops/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux.amd64" -o /tmp/sops \
+    && CHECKSUM=$(curl -fsSL "https://github.com/getsops/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.checksums.txt" \
+        | grep "sops-v${SOPS_VERSION}.linux.amd64$" | awk '{print $1}') \
+    && echo "${CHECKSUM}  /tmp/sops" | sha256sum -c \
+    && install -m 0755 /tmp/sops /usr/local/bin/sops \
+    && rm /tmp/sops
 
-# age
-RUN curl -fsSL "https://github.com/FiloSottile/age/releases/download/v${AGE_VERSION}/age-v${AGE_VERSION}-linux-amd64.tar.gz" \
-        | tar -xz -C /usr/local/bin --strip-components=1 age/age age/age-keygen \
-    && chmod 0755 /usr/local/bin/age /usr/local/bin/age-keygen
+# cosign — used to verify age's .proof attestation; also useful as a standalone tool
+RUN curl -fsSL "https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64" -o /tmp/cosign \
+    && CHECKSUM=$(curl -fsSL "https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign_checksums.txt" \
+        | grep "cosign-linux-amd64$" | awk '{print $1}') \
+    && echo "${CHECKSUM}  /tmp/cosign" | sha256sum -c \
+    && install -m 0755 /tmp/cosign /usr/local/bin/cosign \
+    && rm /tmp/cosign
 
-# git-cliff
-RUN curl -fsSL "https://github.com/orhun/git-cliff/releases/download/v${GITCLIFF_VERSION}/git-cliff-${GITCLIFF_VERSION}.deb" \
-        -o /tmp/git-cliff.deb \
-    && dpkg -i /tmp/git-cliff.deb \
-    && rm /tmp/git-cliff.deb
+# age — no SHA checksum published; .proof files use a custom transparency log format
+# (not a cosign bundle — not verifiable with standard tooling in a Dockerfile context)
+# Download is protected by TLS; cosign is available in the image for verifying OCI artifacts at runtime
+RUN curl -fsSL "https://github.com/FiloSottile/age/releases/download/v${AGE_VERSION}/age-v${AGE_VERSION}-linux-amd64.tar.gz" -o /tmp/age.tar.gz \
+    && tar -xz -C /usr/local/bin --strip-components=1 age/age age/age-keygen -f /tmp/age.tar.gz \
+    && chmod 0755 /usr/local/bin/age /usr/local/bin/age-keygen \
+    && rm /tmp/age.tar.gz
+
+# git-cliff — .deb has no checksum; use the tarball which ships a .sha512
+RUN curl -fsSL "https://github.com/orhun/git-cliff/releases/download/v${GITCLIFF_VERSION}/git-cliff-${GITCLIFF_VERSION}-x86_64-unknown-linux-gnu.tar.gz" -o /tmp/git-cliff.tar.gz \
+    && CHECKSUM=$(curl -fsSL "https://github.com/orhun/git-cliff/releases/download/v${GITCLIFF_VERSION}/git-cliff-${GITCLIFF_VERSION}-x86_64-unknown-linux-gnu.tar.gz.sha512" \
+        | awk '{print $1}') \
+    && echo "${CHECKSUM}  /tmp/git-cliff.tar.gz" | sha512sum -c \
+    && tar -xz -C /usr/local/bin --strip-components=1 --wildcards "*/git-cliff" -f /tmp/git-cliff.tar.gz \
+    && chmod 0755 /usr/local/bin/git-cliff \
+    && rm /tmp/git-cliff.tar.gz
 
 # Non-root user — avoids running as root inside the container
 RUN useradd -m -s /bin/bash tooling
