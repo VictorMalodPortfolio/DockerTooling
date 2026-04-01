@@ -5,6 +5,10 @@
 - `ci` Gate changelog job behind Protected environment ([dc101d2](https://github.com/VictorMalodPortfolio/DockerTooling/commit/dc101d2cf2f590af3bd50f2d86909c2001aae5a7))
 - `ci` Force Node 24 for JS actions to suppress deprecation warnings ([12e6e8f](https://github.com/VictorMalodPortfolio/DockerTooling/commit/12e6e8f7bedc9c6c3060bf4c3c5fea06b07c4ff4))
 - `ci` Skip CI on changelog commits ([86ea2cd](https://github.com/VictorMalodPortfolio/DockerTooling/commit/86ea2cd1efa6efd00597fb1471fb4b10ca32692e))
+- `ci` Add SHA versioning, skip if exists, and GHA build cache ([080f717](https://github.com/VictorMalodPortfolio/DockerTooling/commit/080f7174b84c76a137551864013f9d0d8991de7e))
+- `ci` Skip CI on CHANGELOG.md pushes via paths-ignore ([11ef837](https://github.com/VictorMalodPortfolio/DockerTooling/commit/11ef837b3740257c6b7c62e3c49b4c17989cd04b))
+- `fix` Add setup-buildx-action to enable GHA cache backend ([a6197b5](https://github.com/VictorMalodPortfolio/DockerTooling/commit/a6197b59f6e1ae23bf09a991b2e2eac984863b6c))
+- `fix` Add checksum verification and explicit platform to Dockerfile ([357f13a](https://github.com/VictorMalodPortfolio/DockerTooling/commit/357f13a289bcbeda89bcfd7610aba13f0e4dfb45))
 ## v1.0.0 — 2026-03-29
 - `docs` Add CHANGELOG and conventional commits hook ([3ec7a71](https://github.com/VictorMalodPortfolio/DockerTooling/commit/3ec7a71905a2bea02715edcd0ac8d6181f5cf46a))
 - `feat` Add GitHub Actions workflows and git-cliff ([e88b4a4](https://github.com/VictorMalodPortfolio/DockerTooling/commit/e88b4a41e0e38fc6335682afd763509da9a75abd))
