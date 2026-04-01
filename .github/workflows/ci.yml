@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 env:
-  IMAGE: ghcr.io/victormalodportfolio/k8s-tooling:latest
+  IMAGE: ghcr.io/victormalodportfolio/k8s-tooling
 
 jobs:
   conventional-commits:
@@ -45,14 +45,16 @@ jobs:
         with:
           context: .
           push: false
-          tags: ${{ env.IMAGE }}
+          tags: ${{ env.IMAGE }}:latest
           load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Scan image (SARIF)
         uses: aquasecurity/trivy-action@v0.35.0
         with:
           scan-type: image
-          image-ref: ${{ env.IMAGE }}
+          image-ref: ${{ env.IMAGE }}:latest
           format: sarif
           output: trivy-results.sarif
           exit-code: '0'
@@ -68,7 +70,7 @@ jobs:
         uses: aquasecurity/trivy-action@v0.35.0
         with:
           scan-type: image
-          image-ref: ${{ env.IMAGE }}
+          image-ref: ${{ env.IMAGE }}:latest
           format: table
           exit-code: '1'
           severity: CRITICAL,HIGH
@@ -92,12 +94,30 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Check if SHA tag already exists
+        id: tag-check
+        run: |
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          echo "short-sha=$SHORT_SHA" >> "$GITHUB_OUTPUT"
+          SHA_TAG="${{ env.IMAGE }}:sha-$SHORT_SHA"
+          if docker manifest inspect "$SHA_TAG" > /dev/null 2>&1; then
+            echo "Tag $SHA_TAG already exists in GHCR, skipping build."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build and push
+        if: steps.tag-check.outputs.skip == 'false'
         uses: docker/build-push-action@v7
         with:
           context: .
           push: true
-          tags: ${{ env.IMAGE }}
+          tags: |
+            ${{ env.IMAGE }}:sha-${{ steps.tag-check.outputs.short-sha }}
+            ${{ env.IMAGE }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   changelog:
     name: Update CHANGELOG
