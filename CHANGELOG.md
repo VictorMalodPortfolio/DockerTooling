@@ -4,6 +4,7 @@
 - `ci` Add PR template and CODEOWNERS ([ed9cafa](https://github.com/VictorMalodPortfolio/DockerTooling/commit/ed9cafaecb90fa359618d90c7cee6c4c21125daf))
 - `ci` Gate changelog job behind Protected environment ([dc101d2](https://github.com/VictorMalodPortfolio/DockerTooling/commit/dc101d2cf2f590af3bd50f2d86909c2001aae5a7))
 - `ci` Force Node 24 for JS actions to suppress deprecation warnings ([12e6e8f](https://github.com/VictorMalodPortfolio/DockerTooling/commit/12e6e8f7bedc9c6c3060bf4c3c5fea06b07c4ff4))
+- `ci` Skip CI on changelog commits ([86ea2cd](https://github.com/VictorMalodPortfolio/DockerTooling/commit/86ea2cd1efa6efd00597fb1471fb4b10ca32692e))
 ## v1.0.0 — 2026-03-29
 - `docs` Add CHANGELOG and conventional commits hook ([3ec7a71](https://github.com/VictorMalodPortfolio/DockerTooling/commit/3ec7a71905a2bea02715edcd0ac8d6181f5cf46a))
 - `feat` Add GitHub Actions workflows and git-cliff ([e88b4a4](https://github.com/VictorMalodPortfolio/DockerTooling/commit/e88b4a41e0e38fc6335682afd763509da9a75abd))
