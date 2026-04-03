@@ -19,8 +19,6 @@ ENV SOPS_VERSION=3.12.2
 ENV AGE_VERSION=1.3.1
 # renovate: datasource=github-releases depName=orhun/git-cliff extractVersion=^v(?<version>.+)$
 ENV GITCLIFF_VERSION=2.12.0
-# renovate: datasource=github-releases depName=sigstore/cosign extractVersion=^v(?<version>.+)$
-ENV COSIGN_VERSION=3.0.5
 
 # Base dependencies — single layer to minimise image size
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -86,17 +84,9 @@ RUN curl -fsSL "https://github.com/getsops/sops/releases/download/v${SOPS_VERSIO
     && install -m 0755 /tmp/sops /usr/local/bin/sops \
     && rm /tmp/sops
 
-# cosign — used to verify age's .proof attestation; also useful as a standalone tool
-RUN curl -fsSL "https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64" -o /tmp/cosign \
-    && CHECKSUM=$(curl -fsSL "https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign_checksums.txt" \
-        | grep "cosign-linux-amd64$" | awk '{print $1}') \
-    && echo "${CHECKSUM}  /tmp/cosign" | sha256sum -c \
-    && install -m 0755 /tmp/cosign /usr/local/bin/cosign \
-    && rm /tmp/cosign
 
-# age — no SHA checksum published; .proof files use a custom transparency log format
-# (not a cosign bundle — not verifiable with standard tooling in a Dockerfile context)
-# Download is protected by TLS; cosign is available in the image for verifying OCI artifacts at runtime
+# age — no SHA checksum published; .proof files are a custom transparency log format
+# incompatible with cosign. Download integrity relies on TLS only.
 RUN curl -fsSL "https://github.com/FiloSottile/age/releases/download/v${AGE_VERSION}/age-v${AGE_VERSION}-linux-amd64.tar.gz" -o /tmp/age.tar.gz \
     && tar -xz -C /usr/local/bin --strip-components=1 age/age age/age-keygen -f /tmp/age.tar.gz \
     && chmod 0755 /usr/local/bin/age /usr/local/bin/age-keygen \
