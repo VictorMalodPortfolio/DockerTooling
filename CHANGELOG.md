@@ -9,6 +9,8 @@
 - `ci` Skip CI on CHANGELOG.md pushes via paths-ignore ([11ef837](https://github.com/VictorMalodPortfolio/DockerTooling/commit/11ef837b3740257c6b7c62e3c49b4c17989cd04b))
 - `fix` Add setup-buildx-action to enable GHA cache backend ([a6197b5](https://github.com/VictorMalodPortfolio/DockerTooling/commit/a6197b59f6e1ae23bf09a991b2e2eac984863b6c))
 - `fix` Add checksum verification and explicit platform to Dockerfile ([357f13a](https://github.com/VictorMalodPortfolio/DockerTooling/commit/357f13a289bcbeda89bcfd7610aba13f0e4dfb45))
+- `docs` Clarify cosign and age comments in Dockerfile ([98801dc](https://github.com/VictorMalodPortfolio/DockerTooling/commit/98801dc4472e21118dcba4b47716eafa4d4e34a5))
+- `docs` Add shields.io badges to README ([b470c91](https://github.com/VictorMalodPortfolio/DockerTooling/commit/b470c91ba723d60b0a74304bd1a618923e669367))
 ## v1.0.0 — 2026-03-29
 - `docs` Add CHANGELOG and conventional commits hook ([3ec7a71](https://github.com/VictorMalodPortfolio/DockerTooling/commit/3ec7a71905a2bea02715edcd0ac8d6181f5cf46a))
 - `feat` Add GitHub Actions workflows and git-cliff ([e88b4a4](https://github.com/VictorMalodPortfolio/DockerTooling/commit/e88b4a41e0e38fc6335682afd763509da9a75abd))
