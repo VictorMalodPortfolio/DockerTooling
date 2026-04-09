@@ -5,6 +5,8 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $composeFile = Resolve-Path "$scriptDir\..\..\docker-compose.yml"
 
 docker compose -f "$composeFile" run --rm `
+  --user root `
+  -e "HOME=/home/tooling" `
   -v "${env:KUBECONFIG}:/home/tooling/.kube/config:ro" `
   -v "${env:SOPS_AGE_KEY_FILE}:/home/tooling/.config/sops/age/key.txt:ro" `
   -e "SOPS_AGE_KEY_FILE=/home/tooling/.config/sops/age/key.txt" `
