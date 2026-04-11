@@ -63,3 +63,14 @@ vulnerabilities:
   # Requires a Docker AuthZ plugin to be configured — not the case here.
   - id: CVE-2026-34040
     statement: Not applicable — no AuthZ plugin is configured in this tooling container.
+
+  # go-jose/v4: JWT library vulnerability
+  # Found in: helm, tofu compiled dependencies
+  - id: CVE-2026-34986
+    statement: Accepted risk — no upstream fix available via newer tool releases.
+
+  # OpenTelemetry Go SDK: BSD kenv command not using absolute path enables PATH hijacking
+  # BSD-only attack vector — not applicable in a Linux container.
+  # Found in: tofu v1.11.5
+  - id: CVE-2026-39883
+    statement: Not exploitable — Linux container, BSD-only attack vector.
