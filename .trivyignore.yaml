@@ -74,3 +74,8 @@ vulnerabilities:
   # Found in: tofu v1.11.5
   - id: CVE-2026-39883
     statement: Not exploitable — Linux container, BSD-only attack vector.
+
+  # HashiCorp go-getter: path traversal or arbitrary file access
+  # Found in: tofu v1.11.5 compiled dependency
+  - id: CVE-2026-4660
+    statement: Accepted risk — no upstream fix available via newer tofu release.
