@@ -16,7 +16,7 @@ ENV STERN_VERSION=1.33.1
 # renovate: datasource=github-releases depName=getsops/sops extractVersion=^v(?<version>.+)$
 ENV SOPS_VERSION=3.12.2
 # renovate: datasource=github-releases depName=FiloSottile/age extractVersion=^v(?<version>.+)$
-ENV AGE_VERSION=1.3.1
+ENV AGE_VERSION=1.3.2
 # renovate: datasource=github-releases depName=orhun/git-cliff extractVersion=^v(?<version>.+)$
 ENV GITCLIFF_VERSION=2.12.0
 
