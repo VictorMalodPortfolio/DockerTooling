@@ -2,7 +2,7 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/VictorMalodPortfolio/DockerTooling/ci.yml?branch=main&label=CI&style=for-the-badge)](https://github.com/VictorMalodPortfolio/DockerTooling/actions/workflows/ci.yml)
 [![GHCR](https://img.shields.io/badge/GHCR-k8s--tooling-2496ED?logo=docker&logoColor=white&style=for-the-badge)](https://github.com/VictorMalodPortfolio/DockerTooling/pkgs/container/k8s-tooling)
-[![Base image](https://img.shields.io/badge/base-Ubuntu%2024.04-E95420?logo=ubuntu&logoColor=white&style=for-the-badge)](https://hub.docker.com/_/ubuntu)
+[![Base image](https://img.shields.io/badge/base-Ubuntu%2026.04-E95420?logo=ubuntu&logoColor=white&style=for-the-badge)](https://hub.docker.com/_/ubuntu)
 [![Trivy](https://img.shields.io/badge/Trivy-scanned-1904DA?logo=aquasecurity&logoColor=white&style=for-the-badge)](https://github.com/VictorMalodPortfolio/DockerTooling/security/code-scanning)
 [![Renovate](https://img.shields.io/badge/Renovate-enabled-1A1F6C?logo=renovatebot&logoColor=white&style=for-the-badge)](https://github.com/renovatebot/renovate)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-FE5196?logo=conventionalcommits&logoColor=white&style=for-the-badge)](https://conventionalcommits.org)

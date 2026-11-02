@@ -1,27 +1,39 @@
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Pinned versions for reproducibility
 # renovate: datasource=github-releases depName=kubernetes/kubernetes extractVersion=^v(?<version>.+)$
-ENV KUBECTL_VERSION=1.35.3
+ENV KUBECTL_VERSION=1.37.2
 # renovate: datasource=github-releases depName=helm/helm extractVersion=^v(?<version>.+)$
-ENV HELM_VERSION=3.20.1
+ENV HELM_VERSION=4.3.1
 # renovate: datasource=github-releases depName=opentofu/opentofu extractVersion=^v(?<version>.+)$
-ENV OPENTOFU_VERSION=1.11.5
+ENV OPENTOFU_VERSION=1.13.2
 # renovate: datasource=github-releases depName=derailed/k9s extractVersion=^v(?<version>.+)$
-ENV K9S_VERSION=0.50.18
+ENV K9S_VERSION=0.51.0
 # renovate: datasource=github-releases depName=stern/stern extractVersion=^v(?<version>.+)$
-ENV STERN_VERSION=1.33.1
+ENV STERN_VERSION=1.35.0
 # renovate: datasource=github-releases depName=getsops/sops extractVersion=^v(?<version>.+)$
-ENV SOPS_VERSION=3.12.2
+ENV SOPS_VERSION=3.13.3
 # renovate: datasource=github-releases depName=FiloSottile/age extractVersion=^v(?<version>.+)$
-ENV AGE_VERSION=1.3.1
+ENV AGE_VERSION=1.3.2
 # renovate: datasource=github-releases depName=orhun/git-cliff extractVersion=^v(?<version>.+)$
-ENV GITCLIFF_VERSION=2.12.0
+ENV GITCLIFF_VERSION=2.14.2
 
-# Base dependencies — single layer to minimise image size
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# CI passes the date, so the layers below run again every day instead of staying
+# frozen in the build cache with yesterday's packages.
+ARG APT_REFRESH=manual
+
+# Base dependencies — single layer to minimise image size.
+# upgrade: Ubuntu's security fixes land between base image releases, and the CI
+# gate fails on any OS package CVE that has a fix.
+# pebble comes with the Ubuntu base image. Nothing here runs it, and its Go
+# dependencies only add CVEs to the scan.
+RUN echo "apt refresh: ${APT_REFRESH}" \
+    && apt-get update \
+    && apt-get upgrade -y \
+    && rm -f /usr/bin/pebble \
+    && apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
         unzip \
