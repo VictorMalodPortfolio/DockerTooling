@@ -65,7 +65,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Scan image (SARIF)
-        uses: aquasecurity/trivy-action@v0.35.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: image
           image-ref: ${{ env.IMAGE }}:latest
@@ -87,7 +87,7 @@ jobs:
       # carry some, and they clear when the authors rebuild. Renovate brings those
       # releases in.
       - name: Scan image (gate, fixable OS packages)
-        uses: aquasecurity/trivy-action@v0.35.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: image
           image-ref: ${{ env.IMAGE }}:latest
@@ -99,7 +99,7 @@ jobs:
           trivyignores: .trivyignore.yaml
 
       - name: Scan image (gate, critical)
-        uses: aquasecurity/trivy-action@v0.35.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: image
           image-ref: ${{ env.IMAGE }}:latest
