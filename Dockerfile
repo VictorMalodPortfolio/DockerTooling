@@ -8,7 +8,7 @@ ENV KUBECTL_VERSION=1.37.2
 # renovate: datasource=github-releases depName=helm/helm extractVersion=^v(?<version>.+)$
 ENV HELM_VERSION=4.3.1
 # renovate: datasource=github-releases depName=opentofu/opentofu extractVersion=^v(?<version>.+)$
-ENV OPENTOFU_VERSION=1.13.2
+ENV OPENTOFU_VERSION=1.13.9
 # renovate: datasource=github-releases depName=derailed/k9s extractVersion=^v(?<version>.+)$
 ENV K9S_VERSION=0.51.0
 # renovate: datasource=github-releases depName=stern/stern extractVersion=^v(?<version>.+)$
