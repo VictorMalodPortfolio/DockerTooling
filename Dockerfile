@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # renovate: datasource=github-releases depName=kubernetes/kubernetes extractVersion=^v(?<version>.+)$
 ENV KUBECTL_VERSION=1.37.2
 # renovate: datasource=github-releases depName=helm/helm extractVersion=^v(?<version>.+)$
-ENV HELM_VERSION=4.3.1
+ENV HELM_VERSION=4.3.2
 # renovate: datasource=github-releases depName=opentofu/opentofu extractVersion=^v(?<version>.+)$
 ENV OPENTOFU_VERSION=1.13.2
 # renovate: datasource=github-releases depName=derailed/k9s extractVersion=^v(?<version>.+)$
